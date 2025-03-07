@@ -12,6 +12,7 @@ import { listProducts } from '../actions/productActions'
 import axios from 'axios'
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword
+  console.log(keyword)
   const [pdcollection,setpdcollection]=useState([])
   const pageNumber = match.params.pageNumber || 1
 
@@ -21,7 +22,7 @@ const HomeScreen = ({ match }) => {
   const { loading, error, products, page, pages } = productList
 
   useEffect(()=>{
-    axios.get('https://online-supermarket1-1.onrender.com/productcollection')
+    axios.get('https://online-supermarket-backend.onrender.com/productcollection')
     .then((res)=>{
       
       setpdcollection(res.data)
